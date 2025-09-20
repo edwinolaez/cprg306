@@ -1,12 +1,13 @@
+import Link from "next/link";
+
 export default function StudentInfo () {
   const name = "Edwin Olaez";
-  const githubUrl = "https://github.com/edwinolaez/cprg306-assignments";
 
   return (
     <div>
       <p>{name}</p>
       <p>
-        Github: <a href={githubUrl} target="_blank" rel="noopener noreferrer"></a>
+        Github: <a target="_blank" rel="noopener nereferrer" href="https://github.com/edwinolaez/cprg306.git">edwinolaez/cprg306</a>
         </p>
     </div>
   )
