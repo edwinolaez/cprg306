@@ -1,11 +1,9 @@
 export default function Item ({name, quantity, category}) {
   return (
-    <li className="p-2 mb-2 bg-white border-1-4 border-blue-900">
-      <div className="flex justify-between">
-        <span className="text-lg font-medium text-black">{name}</span>
-        <span className="text-lg font-medium text-black">{quantity}</span>
-        <span className="text-lg font-medium text-black">{category}</span>
+      <div className="w-full max-w-xxl bg-amber-50 dark:bg-amber-300 border border-gray-200 rounded-lg mb-3 mx-auto p-4 shadow">
+        <h2 className="text-lg font-semibold mb-2 text-black">{name}</h2>
+        <p className="mb-1">Quantity:{quantity}</p>
+        <p>Category: {category}</p>
       </div>
-    </li>
-  );
+ );
 }
