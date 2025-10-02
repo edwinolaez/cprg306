@@ -24,10 +24,10 @@ const increase = () => {
        <div className="flex gap-4">
         <button onClick={decrease}
          disabled={quantity===1}
-        className={`text-shadow-lg font-bold bg-blue-200 text-black px-7 py-7 rounded-full cursor-pointer hover:bg-amber-600 hover:shadow-lg transition ease-linear duration-200 ${quantity ===1 ? "opacity-50": "" }`}> - </button>
+        className={`text-shadow-lg font-bold bg-blue-200 text-black px-7 py-7 rounded-xl cursor-pointer hover:bg-fuchsia-200 hover:shadow-lg transition ease-linear duration-200 ${quantity ===1 ? "opacity-50": "" }`}> - </button>
         <button onClick={increase}
         disabled={quantity===20}
-        className={`text-shadow-lg font-bold bg-green-100 text-black px-7 py-7 rounded-full cursor-pointer hover:bg-amber-200 hover:shadow-lg transition ease-linear duration-200 ${quantity===20 ? "opacity-50" : "" }`}> + </button>
+        className={`text-shadow-lg font-bold bg-green-100 text-black px-7 py-7 rounded-xl cursor-pointer hover:bg-amber-200 hover:shadow-lg transition ease-linear duration-200 ${quantity===20 ? "opacity-50" : "" }`}> + </button>
         </div>
       </div>
   );
