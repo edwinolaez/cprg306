@@ -2,8 +2,10 @@
 import { useState } from "react";
 
 
-export default function NewItem(){
+export default function NewItem({onAddItem}){
   const [quantity, setQuantity]= useState(1);
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState("produce");
 
 const increment = () => {
     if(quantity < 20) {
@@ -16,19 +18,73 @@ const increment = () => {
     }
    };
 
+   const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const item = {
+      name,
+      quantiy,
+      category,
+    };
+
+    onAddItem(item);
+
+    setName("");
+    setQuantity(1);
+    setCategory("produce");
+   };
+
   return (
-      <div className="flex flex-col ">
+      <div className="w-full max-w-md ">
+        <form onSubmit={handleSubmit} className="bg-white p-3 border border-gray-200 rouded-md shadow-sm space-y-4">
+          <div>
+            <label htmlFor="name" className="block text-gray-600 font-medium mb-2">Item Name</label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              placeholder="e.g., milk, 4 L 🥛 "
+              className="w-full px-3.5 py-2 border border-gray-300 rounded-md focus:outline-none focus: ring-blue-300"/>
+            </div>
         <p className="text-2xl font-bold text-gray-600">Quantity: 
             <span className='text-2xl font-bold text-gray-600'>{quantity}:</span>
         </p>
-       <div className="flex gap-4">
+       <div className="mb-4">
         <button onClick={decrement}
          disabled={quantity===1}
         className={`text-shadow-lg font-bold bg-blue-200 text-black px-7 py-7 rounded-xl cursor-pointer hover:bg-fuchsia-200 hover:shadow-lg transition ease-linear duration-200 ${quantity ===1 ? "opacity-50": "" }`}> - </button>
         <button onClick={increment}
         disabled={quantity===20}
         className={`text-shadow-lg font-bold bg-green-100 text-black px-7 py-7 rounded-xl cursor-pointer hover:bg-amber-200 hover:shadow-lg transition ease-linear duration-200 ${quantity===20 ? "opacity-50" : "" }`}> + </button>
+      
+        <div className="mb-4">
+          <label htmlFor="category" className="block text-gray-600 font-medium mb-1">Category</label>
+          <select 
+            id="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounde-md focus:outline-none focus:ring to-blue-300">
+
+            <option value="produce">Produce</option>
+            <option value="dairy">Dairy</option>
+            <option value="bakery">Bakery</option>
+            <option value="meat">Meat</option>
+            <option value="frozen">Frozen</option>
+            <option value="canned">Canned</option>
+            <option value="dry">Dry</option>
+            <option value="beverages">Beverages</option>
+            <option value="snacks">Snacks</option>
+            <option value="household">Household</option>
+            <option value="other">Other</option>
+          </select>
         </div>
+        <button
+          type="submit"
+          className="w-full bg-purple-300 text-white font-medium py-2 px-4 rounded-md transition ease-linear duration-200">Add Item</button>
+        </div>
+        </form>
       </div>
   );
 }
