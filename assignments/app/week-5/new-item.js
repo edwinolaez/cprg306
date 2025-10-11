@@ -21,13 +21,10 @@ const increment = () => {
    const handleSubmit = (event) => {
     event.preventDefault();
 
-    const item = {
-      name,
-      quantiy,
-      category,
-    };
-
-    onAddItem(item);
+    const item = {name, quantity, category};
+    console.log(item);
+    alert(`Added ${quantity} ${name}(s) to category: ${category}`);
+     // onAddItem(item);
 
     setName("");
     setQuantity(1);
@@ -54,10 +51,10 @@ const increment = () => {
        <div className="mb-4">
         <button onClick={decrement}
          disabled={quantity===1}
-        className={`text-shadow-lg font-bold bg-blue-200 text-black px-7 py-7 rounded-xl cursor-pointer hover:bg-fuchsia-200 hover:shadow-lg transition ease-linear duration-200 ${quantity ===1 ? "opacity-50": "" }`}> - </button>
+        className={`text-shadow-lg font-extrabold bg-blue-200 text-black px-7 py-7 rounded-xl cursor-pointer hover:bg-blue-400 hover:shadow-lg transition ease-linear duration-200 mr-4 ${quantity ===1 ? "opacity-50": "" }`}> - </button>
         <button onClick={increment}
         disabled={quantity===20}
-        className={`text-shadow-lg font-bold bg-green-100 text-black px-7 py-7 rounded-xl cursor-pointer hover:bg-amber-200 hover:shadow-lg transition ease-linear duration-200 ${quantity===20 ? "opacity-50" : "" }`}> + </button>
+        className={`text-shadow-lg font-extrabold bg-green-200 text-black px-7 py-7 rounded-xl cursor-pointer hover:bg-green-400 hover:shadow-lg transition ease-linear duration-200 ${quantity===20 ? "opacity-50" : "" }`}> + </button>
       
         <div className="mb-4">
           <label htmlFor="category" className="block text-gray-600 font-medium mb-1">Category</label>
@@ -65,24 +62,24 @@ const increment = () => {
             id="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounde-md focus:outline-none focus:ring to-blue-300">
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring to-blue-300">
 
-            <option value="produce">Produce</option>
-            <option value="dairy">Dairy</option>
-            <option value="bakery">Bakery</option>
-            <option value="meat">Meat</option>
-            <option value="frozen">Frozen</option>
-            <option value="canned">Canned</option>
-            <option value="dry">Dry</option>
-            <option value="beverages">Beverages</option>
-            <option value="snacks">Snacks</option>
-            <option value="household">Household</option>
-            <option value="other">Other</option>
+            <option value="Produce">Produce</option>
+            <option value="Dairy">Dairy</option>
+            <option value="Bakery">Bakery</option>
+            <option value="Meat">Meat</option>
+            <option value="Frozen">Frozen</option>
+            <option value="Canned">Canned</option>
+            <option value="Dry">Dry</option>
+            <option value="Beverages">Beverages</option>
+            <option value="Snacks">Snacks</option>
+            <option value="Household">Household</option>
+            <option value="Other">Other</option>
           </select>
         </div>
         <button
           type="submit"
-          className="w-full bg-purple-300 text-white font-medium py-2 px-4 rounded-md transition ease-linear duration-200">Add Item</button>
+          className="w-full bg-purple-300 text-black font-medium py-2 px-4 cursor-pointer hover:bg-purple-400 rounded-md transition ease-linear duration-200">Add Item</button>
         </div>
         </form>
       </div>
