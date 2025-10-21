@@ -18,6 +18,10 @@ export default function Page() {
   </main>
   );
 }*/
+import NewItem from "./week-7/new-item";
+import ItemList from "./week-7/item-list";
+import itemsData from "./week-7/items.json";
+
 import Link from "next/link";
 
 export default function Page() {
